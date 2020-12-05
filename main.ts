@@ -1,5 +1,4 @@
-input.onButtonPressed(Button.A, function on_button_pressed_a() {
-    
+input.onButtonPressed(Button.A, function () {
     List += -1
     if (List < 0) {
         List = 0
@@ -10,12 +9,9 @@ input.onButtonPressed(Button.A, function on_button_pressed_a() {
         } else {
             basic.showString("Flip")
         }
-        
     }
-    
 })
-function change_binary(n: number) {
-    
+function change_binary (n: number) {
     while (n >= 1) {
         remainder = n % 2
         n = Math.idiv(n, 2)
@@ -24,28 +20,22 @@ function change_binary(n: number) {
     }
     return result
 }
-
-input.onButtonPressed(Button.AB, function on_button_pressed_ab() {
+input.onButtonPressed(Button.AB, function () {
     if (List == 0) {
         Reset()
     }
-    
     if (List == 1) {
         Reset()
     }
-    
     if (List == 2) {
         Flip()
     }
-    
 })
-input.onButtonPressed(Button.B, function on_button_pressed_b() {
-    
+input.onButtonPressed(Button.B, function () {
     List += 1
     if (List >= 3) {
         List = 0
     }
-    
     if (List == 0) {
         basic.showString("Set")
     } else if (List == 1) {
@@ -53,16 +43,12 @@ input.onButtonPressed(Button.B, function on_button_pressed_b() {
     } else {
         basic.showString("Flip")
     }
-    
 })
-function Flip() {
-    
+function Flip () {
     Value = randint(0, 10)
     Value_2 = randint(0, 10)
 }
-
-function Reset() {
-    
+function Reset () {
     Value = randint(0, 10)
     Value_2 = randint(0, 10)
     Convert_Value_1 = change_binary(Value)
@@ -72,13 +58,10 @@ function Reset() {
     basic.showString(" of ")
     basic.showNumber(Value_2)
 }
-
-function Set() {
-    
+function Set () {
     Value = randint(0, 10)
     Value_2 = randint(0, 10)
 }
-
 let Convert_Value_2 = 0
 let Convert_Value_1 = 0
 let Value_2 = 0
@@ -89,7 +72,7 @@ let n = 0
 let remainder = 0
 let List = 0
 basic.showString("SET RESET FLIP GAME")
-basic.forever(function on_forever() {
+basic.forever(function () {
     if (List == 0) {
         basic.showString("Set")
     } else if (List == 1) {
@@ -97,5 +80,4 @@ basic.forever(function on_forever() {
     } else {
         basic.showString("Flip")
     }
-    
 })
